@@ -2,9 +2,13 @@
 
 [English](#english) · [Português](#português)
 
+![Bingo app preview](docs/bingo-preview.jpg)
+
 ## English
 
 A lightweight, responsive bingo number board built with plain HTML, CSS, and JavaScript.
+
+Live demo: [franzejr.github.io/bingo](https://franzejr.github.io/bingo/)
 
 ### Features
 
@@ -35,11 +39,17 @@ Then visit `http://127.0.0.1:4173`.
 - User-facing text must be available in English and Brazilian Portuguese.
 - Keep the project dependency-free unless a new requirement clearly benefits from a dependency.
 
+### License
+
+This project is open source and available under the [MIT License](LICENSE).
+
 ---
 
 ## Português
 
 Um painel de números de bingo leve e responsivo, criado com HTML, CSS e JavaScript puro.
+
+Demo ao vivo: [franzejr.github.io/bingo](https://franzejr.github.io/bingo/)
 
 ### Funcionalidades
 
@@ -69,3 +79,7 @@ Depois, acesse `http://127.0.0.1:4173`.
 - Todas as mensagens de commit devem ser escritas em inglês.
 - Todo texto exibido ao usuário deve estar disponível em inglês e português brasileiro.
 - Mantenha o projeto sem dependências, a menos que um novo requisito se beneficie claramente de uma delas.
+
+### Licença
+
+Este projeto é open source e está disponível sob a [Licença MIT](LICENSE).
