@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Um painel simples para selecionar e acompanhar números de bingo."
+    />
+    <title>Bingo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow" data-i18n="gamePanel">Painel de jogo</p>
+          <h1>Bingo!</h1>
+          <p class="subtitle" data-i18n="instructions">
+            Toque nos números para marcar ou desmarcar.
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <div class="language-switcher" role="group" aria-label="Selecionar idioma">
+            <button class="language-button" type="button" data-language="pt-BR">
+              PT
+            </button>
+            <button class="language-button" type="button" data-language="en">
+              EN
+            </button>
+          </div>
+
+          <div class="counter" aria-live="polite">
+            <strong id="selected-count">0</strong>
+            <span data-i18n="selectedCount">selecionados</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="current-number" aria-live="polite">
+        <div class="current-number-display">
+          <span data-i18n="lastNumber">Último número</span>
+          <strong id="last-number">—</strong>
+        </div>
+        <button id="draw-button" class="draw-button" type="button" data-i18n="drawNumber">
+          Sortear número
+        </button>
+      </section>
+
+      <section class="card" aria-labelledby="available-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow" data-i18n="numberBoard">Cartela</p>
+            <h2 id="available-title" data-i18n="chooseNumbers">
+              Escolha os números
+            </h2>
+          </div>
+          <button
+            id="clear-button"
+            class="secondary-button"
+            type="button"
+            data-i18n="clearAll"
+            disabled
+          >
+            Limpar tudo
+          </button>
+        </div>
+
+        <div
+          id="number-grid"
+          class="number-grid"
+          data-i18n-aria-label="numbersRange"
+          aria-label="Números de 1 a 75"
+        ></div>
+      </section>
+
+      <section class="card selected-card" aria-labelledby="selected-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow" data-i18n="result">Resultado</p>
+            <h2 id="selected-title" data-i18n="selectedNumbers">
+              Números escolhidos
+            </h2>
+          </div>
+        </div>
+
+        <p id="empty-message" class="empty-message" data-i18n="emptySelection">
+          Nenhum número escolhido ainda.
+        </p>
+        <div
+          id="selected-numbers"
+          class="selected-numbers"
+          data-i18n-aria-label="selectedNumbers"
+          aria-label="Números escolhidos"
+        ></div>
+      </section>
+
+      <section class="card pdf-card" aria-labelledby="pdf-title">
+        <div class="section-heading pdf-heading">
+          <div>
+            <p class="eyebrow" data-i18n="printableCards">Cartelas para imprimir</p>
+            <h2 id="pdf-title" data-i18n="pdfTitle">Gerar cartelas em PDF</h2>
+          </div>
+          <p class="section-description" data-i18n="pdfDescription">
+            Configure as cartelas e baixe um PDF pronto para impressão.
+          </p>
+        </div>
+
+        <form id="pdf-form" class="pdf-form">
+          <div class="pdf-fields">
+            <label class="field" for="numbers-per-card">
+              <span data-i18n="numbersPerCard">Números por cartela</span>
+              <input
+                id="numbers-per-card"
+                name="numbersPerCard"
+                type="number"
+                min="1"
+                max="75"
+                value="24"
+                required
+              />
+            </label>
+
+            <label class="field" for="card-count">
+              <span data-i18n="cardCount">Quantidade de cartelas</span>
+              <input
+                id="card-count"
+                name="cardCount"
+                type="number"
+                min="1"
+                max="100"
+                value="4"
+                required
+              />
+            </label>
+          </div>
+
+          <div class="probability-panel" aria-live="polite">
+            <div class="probability-stat">
+              <span data-i18n="singleCardChance">Acerto em uma cartela</span>
+              <strong id="single-card-chance">32%</strong>
+            </div>
+            <div class="probability-stat">
+              <span data-i18n="anyCardChance">Acerto em pelo menos uma</span>
+              <strong id="any-card-chance">78,6%</strong>
+            </div>
+            <div class="probability-stat">
+              <span data-i18n="possibleCards">Combinações possíveis</span>
+              <strong id="possible-cards">—</strong>
+            </div>
+          </div>
+
+          <p class="probability-note" data-i18n="probabilityNote">
+            Estimativa para um único número sorteado, supondo cartelas independentes.
+          </p>
+
+          <div class="pdf-actions">
+            <button class="pdf-button" type="submit" data-i18n="generatePdf">
+              Gerar e baixar PDF
+            </button>
+            <a
+              id="pdf-download-link"
+              class="pdf-download-link"
+              href="#"
+              data-i18n="downloadAgain"
+              hidden
+            >
+              Baixar PDF novamente
+            </a>
+            <p id="pdf-status" class="pdf-status" aria-live="polite"></p>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
